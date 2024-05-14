@@ -10,13 +10,18 @@ export default function App() {
 
   useEffect(() => {
     console.log("enteredGoal:", enteredGoal);
-  }, [enteredGoal]);
+    console.log("goals:", goals);
+  }, [enteredGoal, goals]);
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <GoalsForm setEnteredGoal={setEnteredGoal} />
-      <GoalsList />
+      <GoalsForm
+        enteredGoal={enteredGoal}
+        setEnteredGoal={setEnteredGoal}
+        setGoals={setGoals}
+      />
+      <GoalsList goals={goals} />
     </View>
   );
 }

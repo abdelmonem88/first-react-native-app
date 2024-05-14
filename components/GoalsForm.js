@@ -1,8 +1,12 @@
 import { View, Text, StyleSheet, TextInput, Button } from "react-native";
 
-const GoalsForm = ({ setEnteredGoal }) => {
+const GoalsForm = ({ enteredGoal, setEnteredGoal, setGoals }) => {
   const goalInputHandler = (enteredText) => {
     setEnteredGoal(enteredText);
+  };
+
+  const addGoalHandler = () => {
+    setGoals((currentGoals) => [...currentGoals, enteredGoal]);
   };
 
   return (

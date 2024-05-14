@@ -1,10 +1,18 @@
-import { View, Text } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import React from "react";
 
-const GoalsList = () => {
+const GoalsList = ({ goals }) => {
   return (
     <View>
-      <Text>GoalsList</Text>
+      <FlatList
+        data={goals}
+        renderItem={(itemData) => (
+          <View>
+            <Text>{itemData.item}</Text>
+          </View>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
     </View>
   );
 };
