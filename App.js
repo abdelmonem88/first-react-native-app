@@ -1,11 +1,22 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StatusBar, StyleSheet, Text, View } from "react-native";
+import { useState, useEffect } from "react";
+
+import GoalsForm from "./components/GoalsForm";
+import GoalsList from "./components/GoalsList";
 
 export default function App() {
+  const [enteredGoal, setEnteredGoal] = useState("");
+  const [goals, setGoals] = useState([]);
+
+  useEffect(() => {
+    console.log("enteredGoal:", enteredGoal);
+  }, [enteredGoal]);
+
   return (
     <View style={styles.container}>
-      <Text>Hello World!</Text>
       <StatusBar style="auto" />
+      <GoalsForm setEnteredGoal={setEnteredGoal} />
+      <GoalsList />
     </View>
   );
 }
@@ -13,8 +24,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#E4C59E",
   },
 });
