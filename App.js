@@ -10,6 +10,7 @@ export default function App() {
   const [goals, setGoals] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  console.log("test");
   return (
     <>
       <StatusBar style="auto" />
